@@ -67,7 +67,7 @@ router.get('/update-cities', async function (req, res, nex) {
   var cityList = await cityModel.find();
 
   for (var i = 0; i < cityList.length; i++) {
-    var data = request('GET', `https://api.openweathermap.org/data/2.5/weather?q=${cityList[i].name}&units=metric&lang=fr&appid=2eb8c180339bf8ac52dd9aa424e9d920`)
+    var data = request('GET', `https://api.openweathermap.org/data/2.5/weather?q=${cityList[i].name}&units=metric&lang=fr&appid=${process.env.API_KEY}`)
     var weatherData = JSON.parse(data.body)
 
     await cityModel.updateOne({

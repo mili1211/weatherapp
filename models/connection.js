@@ -6,7 +6,7 @@ var options = {
     useUnifiedTopology: true
 }
 
-mongoose.connect('mongodb+srv://mili86:MYjIc84FP9lsytzf@cluster0.qpx2f.mongodb.net/weatherapp?retryWrites=true&w=majority',
+   mongoose.connect(`${process.env.DB_CONNECT}`,
     options,
     function (err) {
         err ? console.log(err) : console.log('*** Database connected ***');
